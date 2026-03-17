@@ -1,0 +1,359 @@
+DROP TROOPER v1.2 – CORE SYSTEM
+MASTER RULES FILE
+
+Drop Trooper is a fast, tactical sci-fi combat game built for squad-level action and easy VTT play.
+The system uses d6 dice pools. Only 6s count as successes on attack and defense rolls.
+Damage dice are rolled normally and added together.
+
+------------------------------------------------------------
+1. CORE RESOLUTION
+------------------------------------------------------------
+
+Most combat actions follow this sequence:
+
+1. Roll Attack Dice
+2. Determine Damage Dice
+3. Target Rolls Defense Dice
+4. Roll Remaining Damage Dice
+5. Apply Armor Tier Multiplier
+6. Apply Critical or Epic modifiers
+7. Apply damage to Integrity, then Health
+
+------------------------------------------------------------
+2. ACTION ECONOMY
+------------------------------------------------------------
+
+Each trooper gets 2 actions on their turn.
+
+Common actions include:
+- Move
+- Shoot
+- Reload
+- Use item
+- Interact with objective
+- Deploy gear or drone
+
+Example turns:
+- Move + Shoot
+- Reload + Shoot
+- Move + Reload
+- Shoot + Shoot
+
+The GM may restrict duplicate actions if a specific situation or weapon calls for it.
+
+------------------------------------------------------------
+3. ATTACK ROLL
+------------------------------------------------------------
+
+Roll Attack Dice (d6) based on weapon, ability, or effect.
+Each 6 = 1 success.
+
+Success Results:
+0 successes = Miss
+1 success = Hit
+2 successes = +1 damage die
+3 successes = Critical Hit
+4+ successes = Epic Hit
+
+------------------------------------------------------------
+4. DAMAGE DICE
+------------------------------------------------------------
+
+Each weapon has a base damage dice pool.
+
+Examples:
+Rifle – 4d6
+Heavy Rifle – 5d6
+Missile Launcher – 8d6
+
+Attack successes may modify damage:
+- 1 success: roll base damage
+- 2 successes: add +1 damage die
+- 3 successes: Critical Hit
+- 4+ successes: Epic Hit
+
+------------------------------------------------------------
+5. DEFENSE ROLL
+------------------------------------------------------------
+
+After a hit is confirmed, the target may roll Defense Dice (d6).
+Each 6 removes 1 damage die from the incoming attack.
+
+Defense represents:
+- armor maneuvering
+- shield systems
+- reactive thrusters
+- evasive movement
+- cover
+
+Defense can reduce damage dice to 0.
+If all damage dice are removed, the attack deals 0 damage.
+
+Defense does not turn a hit into a miss. It only reduces or negates damage.
+
+------------------------------------------------------------
+6. DAMAGE ROLL
+------------------------------------------------------------
+
+Roll the remaining damage dice and total the result.
+
+Example:
+4d6 = 4 + 6 + 3 + 5 = 18 damage
+
+If defense reduced the pool to 0 dice, the attack deals 0 damage.
+
+------------------------------------------------------------
+7. ARMOR TIERS AND DAMAGE MULTIPLIERS
+------------------------------------------------------------
+
+Weapons and armor both have tiers.
+
+Armor / Weapon Tiers:
+Light  – creatures, recon armor, light weapons
+Medium – combat armor, standard troops, military rifles
+Heavy  – battlesuits, tanks, heavy weapons
+Ultra  – starship scale systems and ship armor
+
+Compare the weapon tier to the target's armor tier.
+
+Damage Multiplier:
+- Same tier = x1 damage
+- Weapon 1 tier higher = x2 damage
+- Weapon 2+ tiers higher = x4 damage
+- Weapon 1 tier lower = x0.5 damage
+- Weapon 2+ tiers lower = x0.25 damage
+
+Examples:
+- Heavy weapon vs Heavy armor = x1
+- Heavy weapon vs Medium armor = x2
+- Heavy weapon vs Light armor = x4
+- Light weapon vs Medium armor = x0.5
+- Light weapon vs Heavy armor = x0.25
+
+Round final damage up after applying multipliers unless the result is 0.
+
+------------------------------------------------------------
+8. CRITICAL HITS
+------------------------------------------------------------
+
+If the attack roll produces exactly 3 successes, the hit is Critical.
+
+Resolve the attack normally, then:
+Total Damage x2
+
+Critical hits do not automatically add narrative effects unless the GM wants to.
+Their core effect is doubled damage.
+
+------------------------------------------------------------
+9. EPIC HITS
+------------------------------------------------------------
+
+If the attack roll produces 4 or more successes, the hit is an Epic Hit.
+
+Resolve the attack normally, then:
+Total Damage x2
+
+In addition, the GM may apply one cinematic effect that fits the weapon and situation.
+Examples include:
+- knockback
+- armor breach
+- weapon damage
+- stagger
+- environmental destruction
+- system disruption
+
+Epic Hits are meant to feel dramatic, dangerous, and memorable.
+
+------------------------------------------------------------
+10. ARMOR INTEGRITY AND HEALTH
+------------------------------------------------------------
+
+Armor absorbs damage before the trooper is injured.
+
+Damage is applied in this order:
+Damage -> Armor Integrity -> Health
+
+When Integrity reaches 0, any remaining damage is applied to Health.
+Once Integrity is gone, future damage goes directly to Health unless armor is repaired.
+
+Example Integrity Values:
+Recon Armor – 18
+Combat Armor – 20
+Heavy Battlesuit – 24
+
+------------------------------------------------------------
+11. ARMOR TYPES
+------------------------------------------------------------
+
+Armor type matters because it determines the tier used in damage scaling.
+
+Common armor types:
+Recon Armor
+- Tier: Light
+- Example Integrity: 18
+- Fast, mobile, vulnerable to heavier weapons
+
+Combat Armor
+- Tier: Medium
+- Example Integrity: 20
+- Standard military protection
+
+Heavy Battlesuit
+- Tier: Heavy
+- Example Integrity: 24
+- Slower, tougher, resistant to lighter weapons
+
+Ship Armor
+- Tier: Ultra
+- Used for starfighters, gunships, dropships, and larger vessels
+
+------------------------------------------------------------
+12. AMMO SYSTEM
+------------------------------------------------------------
+
+Most ranged weapons track ammunition.
+
+Weapons list:
+- Ammo Current
+- Magazine Size
+- Reserve Ammo
+
+Example:
+Pulse Rifle
+Ammo Current: 12
+Magazine Size: 12
+Reserve Ammo: 24
+
+When a weapon is fired, reduce Ammo Current as appropriate.
+
+If Ammo Current reaches 0, the weapon cannot be fired until reloaded unless a special rule says otherwise.
+
+------------------------------------------------------------
+13. RELOAD ACTION
+------------------------------------------------------------
+
+Reloading costs 1 action.
+
+When a trooper reloads:
+- Refill the weapon up to its Magazine Size
+- Remove that amount from Reserve Ammo
+- A trooper cannot reload more ammo than remains in Reserve
+
+Example:
+Magazine Size 12
+Ammo Current 3
+Reserve Ammo 14
+
+Reloading loads 9 rounds.
+New totals:
+Ammo Current 12
+Reserve Ammo 5
+
+A trooper with 2 actions may Reload + Shoot on the same turn.
+
+------------------------------------------------------------
+14. AOE WEAPONS AND BLAST ZONES
+------------------------------------------------------------
+
+Explosive weapons create blast zones.
+Examples include:
+- grenades
+- missile launchers
+- satchel charges
+- orbital strikes
+
+Standard blast zones:
+- Kill Zone = full damage dice
+- Heavy Splash = half damage dice
+- Fragmentation = quarter damage dice
+
+Each target in the blast rolls defense normally.
+
+For reduced blast dice:
+- Half dice: round up
+- Quarter dice: round up
+- Minimum 1 die if the target is still inside the blast area
+
+Example:
+Missile Launcher base damage = 8d6
+- Kill Zone: 8d6
+- Heavy Splash: 4d6
+- Fragmentation: 2d6
+
+The GM may assign exact distances for each zone by weapon.
+
+Example missile profile:
+0–30 ft = Kill Zone
+31–60 ft = Heavy Splash
+61–100 ft = Fragmentation
+
+Some explosives may also have a minimum arming distance.
+
+------------------------------------------------------------
+15. DRONES
+------------------------------------------------------------
+
+Some troopers deploy drones.
+Drones operate as separate battlefield units controlled by the player or GM.
+
+A drone may have its own:
+- Attack Dice
+- Defense Dice
+- Armor Tier
+- Integrity or Health
+- Speed
+- weapon profile
+- special ability
+
+Unless a specific drone rule says otherwise, drones follow the same combat rules as other units.
+
+------------------------------------------------------------
+16. EXAMPLE ATTACK
+------------------------------------------------------------
+
+Nyx fires a Heavy Rifle at a Tawny trooper in Combat Armor.
+
+Attack Roll:
+3 Attack Dice -> 2 successes
+Result: +1 damage die
+
+Weapon Damage:
+Heavy Rifle base damage = 4d6
+With +1 damage die = 5d6
+
+Defense Roll:
+Target rolls 2 Defense Dice -> 1 success
+Remove 1 damage die
+
+Final Damage Pool:
+4d6
+
+Damage Roll:
+4 + 6 + 3 + 5 = 18
+
+Armor Interaction:
+Heavy weapon vs Medium armor = x2 damage
+18 x 2 = 36 damage
+
+Apply Damage:
+Damage is applied to Integrity first, then Health.
+
+------------------------------------------------------------
+17. DESIGN GOALS
+------------------------------------------------------------
+
+Fast Combat
+Minimal bookkeeping and quick resolution.
+
+Tactical Decisions
+Positioning, armor tier, weapon choice, and defense all matter.
+
+Explosive Sci-Fi Action
+Heavy weapons are terrifying and battlefield movement matters.
+
+VTT Friendly
+The system is built for smooth play in Roll20, Foundry, and other digital tabletops.
+
+------------------------------------------------------------
+END OF DROP TROOPER v1.2 CORE SYSTEM
+------------------------------------------------------------

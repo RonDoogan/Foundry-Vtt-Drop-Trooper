@@ -1,0 +1,219 @@
+<form class="trooper-sheet">
+  <header class="dt-header">
+    <h1>{{actor.name}}</h1>
+    <div class="dt-subtitle">Drop Trooper Combat Sheet</div>
+  </header>
+
+  <section class="dt-grid dt-top">
+    <div class="dt-card">
+      <h2>Identity</h2>
+
+      <label>Callsign</label>
+      <input type="text" name="system.identity.callsign" value="{{system.identity.callsign}}"/>
+
+      <label>Squad</label>
+      <input type="text" name="system.identity.squad" value="{{system.identity.squad}}"/>
+
+      <label>Role</label>
+      <input type="text" name="system.identity.role" value="{{system.identity.role}}"/>
+
+      <label>Rank</label>
+      <input type="text" name="system.identity.rank" value="{{system.identity.rank}}"/>
+
+      <label>Player</label>
+      <input type="text" name="system.identity.player" value="{{system.identity.player}}"/>
+    </div>
+
+    <div class="dt-card">
+      <h2>Attributes</h2>
+
+      <div class="dt-skill-grid">
+        <div class="dt-skill-row">
+          <button type="button" class="roll-attribute" data-attribute="strength">Roll</button>
+          <label>STR</label>
+          <input type="number" name="system.attributes.strength" value="{{system.attributes.strength}}"/>
+        </div>
+
+        <div class="dt-skill-row">
+          <button type="button" class="roll-attribute" data-attribute="agility">Roll</button>
+          <label>AGI</label>
+          <input type="number" name="system.attributes.agility" value="{{system.attributes.agility}}"/>
+        </div>
+
+        <div class="dt-skill-row">
+          <button type="button" class="roll-attribute" data-attribute="perception">Roll</button>
+          <label>PER</label>
+          <input type="number" name="system.attributes.perception" value="{{system.attributes.perception}}"/>
+        </div>
+
+        <div class="dt-skill-row">
+          <button type="button" class="roll-attribute" data-attribute="tech">Roll</button>
+          <label>TEC</label>
+          <input type="number" name="system.attributes.tech" value="{{system.attributes.tech}}"/>
+        </div>
+
+        <div class="dt-skill-row">
+          <button type="button" class="roll-attribute" data-attribute="will">Roll</button>
+          <label>WIL</label>
+          <input type="number" name="system.attributes.will" value="{{system.attributes.will}}"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="dt-card">
+      <h2>Combat</h2>
+
+      <label>Initiative</label>
+      <input type="number" name="system.combat.initiative" value="{{system.combat.initiative}}"/>
+
+      <label>Momentum Current</label>
+      <input type="number" name="system.combat.momentum.value" value="{{system.combat.momentum.value}}"/>
+
+      <label>Momentum Max</label>
+      <input type="number" name="system.combat.momentum.max" value="{{system.combat.momentum.max}}"/>
+
+      <label>Speed</label>
+      <input type="number" name="system.combat.speed" value="{{system.combat.speed}}"/>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.combat.reactionAvailable" {{checked system.combat.reactionAvailable}}/>
+        Reaction Available
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.combat.overwatch" {{checked system.combat.overwatch}}/>
+        On Overwatch
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.combat.suppressed" {{checked system.combat.suppressed}}/>
+        Suppressed
+      </label>
+    </div>
+  </section>
+
+  <section class="dt-grid dt-middle">
+    <div class="dt-card">
+      <h2>Armor</h2>
+
+      <label>Armor Tier</label>
+      <select name="system.armor.tier">
+        <option value="Light" {{#if (eq system.armor.tier "Light")}}selected{{/if}}>Light</option>
+        <option value="Medium" {{#if (eq system.armor.tier "Medium")}}selected{{/if}}>Medium</option>
+        <option value="Heavy" {{#if (eq system.armor.tier "Heavy")}}selected{{/if}}>Heavy</option>
+        <option value="Ultra" {{#if (eq system.armor.tier "Ultra")}}selected{{/if}}>Ultra</option>
+      </select>
+
+      <label>Integrity Current</label>
+      <input type="number" name="system.armor.integrity.value" value="{{system.armor.integrity.value}}"/>
+
+      <label>Integrity Max</label>
+      <input type="number" name="system.armor.integrity.max" value="{{system.armor.integrity.max}}"/>
+
+      <label>Health Current</label>
+      <input type="number" name="system.health.value" value="{{system.health.value}}"/>
+
+      <label>Health Max</label>
+      <input type="number" name="system.health.max" value="{{system.health.max}}"/>
+
+      <label>Armor Notes</label>
+      <textarea name="system.armor.notes">{{system.armor.notes}}</textarea>
+    </div>
+
+    <div class="dt-card">
+      <h2>System Damage</h2>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.systemDamage.leftArm" {{checked system.systemDamage.leftArm}}/>
+        Left Arm
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.systemDamage.rightArm" {{checked system.systemDamage.rightArm}}/>
+        Right Arm
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.systemDamage.leftLeg" {{checked system.systemDamage.leftLeg}}/>
+        Left Leg
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.systemDamage.rightLeg" {{checked system.systemDamage.rightLeg}}/>
+        Right Leg
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.systemDamage.sensors" {{checked system.systemDamage.sensors}}/>
+        Sensors / Vision
+      </label>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.systemDamage.thrusters" {{checked system.systemDamage.thrusters}}/>
+        Thrusters / Flight
+      </label>
+    </div>
+  </section>
+
+  <section class="dt-card">
+    <h2>Skills</h2>
+    <div class="dt-skill-grid">
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="shooting">Roll</button><label>Shooting</label><input type="number" name="system.skills.shooting" value="{{system.skills.shooting}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="heavyWeapons">Roll</button><label>Heavy Weapons</label><input type="number" name="system.skills.heavyWeapons" value="{{system.skills.heavyWeapons}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="melee">Roll</button><label>Melee</label><input type="number" name="system.skills.melee" value="{{system.skills.melee}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="maneuvering">Roll</button><label>Maneuvering</label><input type="number" name="system.skills.maneuvering" value="{{system.skills.maneuvering}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="recon">Roll</button><label>Recon</label><input type="number" name="system.skills.recon" value="{{system.skills.recon}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="sensors">Roll</button><label>Sensors</label><input type="number" name="system.skills.sensors" value="{{system.skills.sensors}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="electronics">Roll</button><label>Electronics</label><input type="number" name="system.skills.electronics" value="{{system.skills.electronics}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="engineering">Roll</button><label>Engineering</label><input type="number" name="system.skills.engineering" value="{{system.skills.engineering}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="droneControl">Roll</button><label>Drone Control</label><input type="number" name="system.skills.droneControl" value="{{system.skills.droneControl}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="command">Roll</button><label>Command</label><input type="number" name="system.skills.command" value="{{system.skills.command}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="discipline">Roll</button><label>Discipline</label><input type="number" name="system.skills.discipline" value="{{system.skills.discipline}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="survival">Roll</button><label>Survival</label><input type="number" name="system.skills.survival" value="{{system.skills.survival}}"/></div>
+      <div class="dt-skill-row"><button type="button" class="roll-defense">Roll</button><label>Defense Dice</label><input type="number" name="system.skills.defense" value="{{system.skills.defense}}"/></div>
+    </div>
+    <div class="dt-button-row">
+      <button type="button" class="brace-roll">Brace</button>
+    </div>
+  </section>
+
+  <section class="dt-card">
+    <h2>Reactions</h2>
+    <div class="dt-button-row">
+    </div>
+    <div class="dt-weapon-hint">Brace rolls Defense dice. Each success rolls 1d6 damage reduction. Apply the total reduction to the incoming damage manually.</div>
+  </section>
+
+  <section class="dt-card dt-weapon-loadout-card">
+    <div class="dt-section-header">
+      <h2>Weapons</h2>
+      <div class="dt-weapon-hint">Ammo shows as Current / Magazine Size (Spare Carried). Reload moves spare carried rounds into the magazine.</div>
+    </div>
+
+    <div class="dt-weapon-list">
+      <div class="dt-weapon-list-header">
+        <div>Weapon</div>
+        <div>Type</div>
+        <div>Tier</div>
+        <div>Ammo</div>
+        <div>Actions</div>
+      </div>
+
+      {{#each weapons as |item|}}
+          <div class="dt-weapon-row" data-item-id="{{item._id}}">
+            <div class="dt-weapon-name-cell">
+              <a class="dt-weapon-name weapon-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+            </div>
+            <div class="dt-weapon-type-cell">{{item.system.skill}}</div>
+            <div class="dt-weapon-tier-cell">{{item.system.tier}}</div>
+            <div class="dt-weapon-ammo-cell">{{item.ammoDisplay}}</div>
+            <div class="dt-weapon-actions-cell">
+              <button type="button" class="weapon-attack" data-item-id="{{item._id}}">{{item.attackLabel}}</button>
+              {{#if item.reloadVisible}}<button type="button" class="weapon-reload" data-item-id="{{item._id}}">Reload</button>{{/if}}
+              <button type="button" class="weapon-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+            </div>
+          </div>
+      {{/each}}
+    </div>
+  </section>
+</form>

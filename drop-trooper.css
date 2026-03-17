@@ -1,0 +1,270 @@
+.trooper-sheet {
+  font-family: sans-serif;
+  padding: 10px;
+  background: #11161d;
+  color: #e8edf2;
+}
+
+.trooper-sheet input,
+.trooper-sheet textarea,
+.trooper-sheet select,
+.trooper-sheet button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 6px;
+  background: #11161d;
+  color: #ffffff;
+  border: 1px solid #3b4a5c;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.trooper-sheet button {
+  cursor: pointer;
+  border: 1px solid #3b4a5c;
+  background: #1b2530;
+  color: #f4f7fa;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.trooper-sheet button:hover {
+  background: #243140;
+}
+
+.dt-header {
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #2c3947;
+  border-radius: 8px;
+  background: #18212b;
+}
+
+.dt-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.dt-subtitle {
+  color: #93a4b7;
+  font-size: 13px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dt-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dt-top {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.dt-middle {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dt-card {
+  border: 1px solid #2c3947;
+  border-radius: 8px;
+  background: #18212b;
+  padding: 10px;
+}
+
+.dt-card h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 1px solid #2c3947;
+  padding-bottom: 6px;
+}
+
+.dt-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.dt-check input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.dt-skill-grid {
+  display: grid;
+  gap: 6px;
+}
+
+.dt-skill-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 70px;
+  gap: 8px;
+  align-items: center;
+}
+
+.dt-skill-row label {
+  margin: 0;
+}
+
+.dt-skill-row input {
+  margin: 0;
+}
+
+.dt-button-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* CHAT CARDS - COMPACT VERSION */
+
+.dt-chat-card {
+  background: #11161d;
+  color: #e8edf2;
+  border: 1px solid #2c3947;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.dt-chat-header {
+  background: linear-gradient(90deg, #1a2633, #233447);
+  padding: 8px 10px; /* reduced */
+  border-bottom: 1px solid #324255;
+}
+
+.dt-chat-title {
+  margin: 0;
+  font-size: 16px; /* reduced */
+  font-weight: 700;
+  color: #f5f8fb;
+}
+
+.dt-chat-subtitle {
+  margin-top: 2px;
+  font-size: 11px; /* reduced */
+  color: #9db0c3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dt-chat-body {
+  padding: 8px; /* reduced */
+}
+
+.dt-chat-section {
+  margin-bottom: 6px; /* reduced */
+  padding: 4px 0; /* reduced + flattened */
+  background: transparent; /* removed block look */
+  border: none;
+}
+
+.dt-chat-section:last-child {
+  margin-bottom: 0;
+}
+
+.dt-chat-section h4 {
+  margin: 0 0 4px 0;
+  font-size: 12px; /* reduced */
+  color: #8fc7ff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dt-chat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px; /* tighter */
+}
+
+.dt-chat-line {
+  margin: 2px 0; /* tighter */
+}
+
+.dt-chat-strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.dt-chat-outcome {
+  display: inline-block;
+  padding: 3px 6px; /* reduced */
+  border-radius: 999px;
+  font-size: 11px; /* reduced */
+  font-weight: 700;
+  background: #2c3947;
+  color: #f4f7fa;
+}
+
+.dt-chat-outcome.hit {
+  background: #2d5a88;
+}
+
+.dt-chat-outcome.crit {
+  background: #2e8b57;
+}
+
+.dt-chat-outcome.epic {
+  background: #7a3db8;
+}
+
+.dt-chat-outcome.miss {
+  background: #7a2f2f;
+}
+
+.dt-chat-final {
+  font-size: 16px; /* reduced */
+  font-weight: 800;
+  color: #ffd166;
+}
+
+.dt-chat-small {
+  font-size: 11px;
+  color: #9db0c3;
+}
+
+/* TARGET ROW COMPRESSION */
+
+.dt-chat-target-main {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.dt-chat-target-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 11px;
+}
+
+.dt-chat-target-row {
+  padding-top: 4px;
+  margin-top: 4px;
+  border-top: 1px solid #2c3947;
+}
+
+.dt-chat-target-row:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.dt-chat-final-inline {
+  font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 720px) {
+  .dt-top,
+  .dt-middle {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,70 @@
+<form class="trooper-sheet">
+  <header>
+    <h1>{{actor.name}}</h1>
+    <div>NPC Combat Unit</div>
+  </header>
+
+  <section>
+    <h2>Armor</h2>
+
+    <label>Armor Tier</label>
+    <select name="system.armor.tier">
+      <option value="Light" {{#if (eq system.armor.tier "Light")}}selected{{/if}}>Light</option>
+      <option value="Medium" {{#if (eq system.armor.tier "Medium")}}selected{{/if}}>Medium</option>
+      <option value="Heavy" {{#if (eq system.armor.tier "Heavy")}}selected{{/if}}>Heavy</option>
+      <option value="Ultra" {{#if (eq system.armor.tier "Ultra")}}selected{{/if}}>Ultra</option>
+    </select>
+
+    <label>Integrity</label>
+    <input type="number" name="system.armor.integrity.value" value="{{system.armor.integrity.value}}"/>
+
+    <label>Integrity Max</label>
+    <input type="number" name="system.armor.integrity.max" value="{{system.armor.integrity.max}}"/>
+  </section>
+
+  <section>
+    <h2>Health</h2>
+
+    <label>Health</label>
+    <input type="number" name="system.health.value" value="{{system.health.value}}"/>
+
+    <label>Health Max</label>
+    <input type="number" name="system.health.max" value="{{system.health.max}}"/>
+  </section>
+
+  <section>
+    <h2>Combat</h2>
+
+    <label>Initiative</label>
+    <input type="number" name="system.combat.initiative" value="{{system.combat.initiative}}"/>
+
+    <label>Defense Dice</label>
+    <input type="number" name="system.skills.defense" value="{{system.skills.defense}}"/>
+
+    <label>Shooting Dice</label>
+    <input type="number" name="system.skills.shooting" value="{{system.skills.shooting}}"/>
+  </section>
+
+  <section>
+    <h2>Weapon</h2>
+
+    <label>Name</label>
+    <input type="text" name="system.weapon.name" value="{{system.weapon.name}}"/>
+
+    <label>Tier</label>
+    <select name="system.weapon.tier">
+      <option value="Light" {{#if (eq system.weapon.tier "Light")}}selected{{/if}}>Light</option>
+      <option value="Medium" {{#if (eq system.weapon.tier "Medium")}}selected{{/if}}>Medium</option>
+      <option value="Heavy" {{#if (eq system.weapon.tier "Heavy")}}selected{{/if}}>Heavy</option>
+      <option value="Ultra" {{#if (eq system.weapon.tier "Ultra")}}selected{{/if}}>Ultra</option>
+    </select>
+
+    <label>Damage Dice</label>
+    <input type="number" name="system.weapon.baseDamage" value="{{system.weapon.baseDamage}}"/>
+  </section>
+
+  <section>
+    <button type="button" class="roll-shoot">Attack</button>
+    <button type="button" class="roll-defense">Defense</button>
+  </section>
+</form>

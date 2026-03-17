@@ -1,0 +1,170 @@
+{
+  "Actor": {
+    "types": [
+      "trooper",
+      "npc",
+      "drone"
+    ],
+    "trooper": {
+      "identity": {
+        "callsign": "",
+        "squad": "",
+        "role": "",
+        "rank": "",
+        "player": ""
+      },
+      "attributes": {
+        "strength": 3,
+        "agility": 3,
+        "perception": 3,
+        "tech": 3,
+        "will": 3
+      },
+      "combat": {
+        "initiative": 0,
+        "momentum": {
+          "value": 0,
+          "max": 2
+        },
+        "reactionAvailable": true,
+        "overwatch": false,
+        "speed": 35,
+        "suppressed": false
+      },
+      "armor": {
+        "tier": "Medium",
+        "integrity": {
+          "value": 10,
+          "max": 10
+        },
+        "notes": ""
+      },
+      "health": {
+        "value": 10,
+        "max": 10
+      },
+      "systemDamage": {
+        "leftArm": false,
+        "rightArm": false,
+        "leftLeg": false,
+        "rightLeg": false,
+        "sensors": false,
+        "thrusters": false
+      },
+      "skills": {
+        "shooting": 3,
+        "heavyWeapons": 2,
+        "melee": 2,
+        "maneuvering": 3,
+        "recon": 2,
+        "sensors": 2,
+        "electronics": 2,
+        "engineering": 2,
+        "droneControl": 1,
+        "command": 2,
+        "discipline": 3,
+        "survival": 2,
+        "defense": 2
+      },
+      "weapon": {
+        "name": "Rifle",
+        "tier": "Medium",
+        "baseDamage": 4,
+        "ammo": "",
+        "notes": "",
+        "aoeEnabled": false,
+        "blastRadius": 100,
+        "killRadius": 30,
+        "heavyRadius": 60,
+        "fragRadius": 100,
+        "killDamage": 6,
+        "heavyDamage": 4,
+        "fragDamage": 2,
+        "magSize": "",
+        "ammoMax": "",
+        "coneRange": 20,
+        "coneAngle": "60",
+        "coneKillRange": 0,
+        "coneHeavyRange": 0,
+        "coneFragRange": 0
+      }
+    },
+    "npc": {
+      "nameplate": "",
+      "armor": {
+        "tier": "Medium",
+        "integrity": {
+          "value": 8,
+          "max": 8
+        }
+      },
+      "health": {
+        "value": 8,
+        "max": 8
+      },
+      "combat": {
+        "initiative": 0
+      },
+      "skills": {
+        "shooting": 2,
+        "defense": 1
+      },
+      "weapon": {
+        "name": "Weapon",
+        "tier": "Medium",
+        "baseDamage": 4,
+        "aoeEnabled": false,
+        "blastRadius": 100,
+        "killRadius": 30,
+        "heavyRadius": 60,
+        "fragRadius": 100,
+        "killDamage": 6,
+        "heavyDamage": 4,
+        "fragDamage": 2,
+        "ammo": "",
+        "magSize": "",
+        "ammoMax": "",
+        "coneRange": 20,
+        "coneAngle": "60",
+        "coneKillRange": 0,
+        "coneHeavyRange": 0,
+        "coneFragRange": 0
+      }
+    },
+    "drone": {
+      "nameplate": "",
+      "health": {
+        "value": 5,
+        "max": 5
+      },
+      "skills": {
+        "shooting": 2,
+        "defense": 1
+      }
+    }
+  },
+  "Item": {
+    "weapon": {
+      "tier": "Medium",
+      "baseDamage": 4,
+      "skill": "shooting",
+      "ammo": "",
+      "notes": "",
+      "aoeEnabled": false,
+      "blastRadius": 100,
+      "killRadius": 30,
+      "heavyRadius": 60,
+      "fragRadius": 100,
+      "killDamage": 6,
+      "heavyDamage": 4,
+      "fragDamage": 2,
+      "magSize": "",
+      "ammoMax": "",
+      "coneRange": 20,
+      "coneAngle": "60",
+      "coneKillRange": 0,
+      "coneHeavyRange": 0,
+      "coneFragRange": 0
+    }
+  }
+}

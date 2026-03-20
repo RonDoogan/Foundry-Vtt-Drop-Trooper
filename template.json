@@ -86,7 +86,10 @@
         "coneAngle": "60",
         "coneKillRange": 0,
         "coneHeavyRange": 0,
-        "coneFragRange": 0
+        "coneFragRange": 0,
+        "aoeEffect": "damage",
+        "smokeDiameter": 30,
+        "smokeDurationRounds": 3
       }
     },
     "npc": {
@@ -128,7 +131,10 @@
         "coneAngle": "60",
         "coneKillRange": 0,
         "coneHeavyRange": 0,
-        "coneFragRange": 0
+        "coneFragRange": 0,
+        "aoeEffect": "damage",
+        "smokeDiameter": 30,
+        "smokeDurationRounds": 3
       }
     },
     "drone": {
@@ -164,7 +170,24 @@
       "coneAngle": "60",
       "coneKillRange": 0,
       "coneHeavyRange": 0,
-      "coneFragRange": 0
+      "coneFragRange": 0,
+      "aoeEffect": "damage",
+      "smokeDiameter": 30,
+      "smokeDurationRounds": 3
+    },
+    "ability": {
+      "abilityType": "skill",
+      "linkedSkill": "tech",
+      "bonusDice": 0,
+      "specialType": "none",
+      "pool": {
+        "value": 0,
+        "max": 0
+      },
+      "notes": "",
+      "baseRange": 60,
+      "rangePerSuccess": 30,
+      "pingDurationMs": 1500
     }
   }
 }

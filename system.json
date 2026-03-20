@@ -25,7 +25,8 @@
       "drone": {}
     },
     "Item": {
-      "weapon": {}
+      "weapon": {},
+      "ability": {}
     }
   }
 }

@@ -1,0 +1,176 @@
+<form class="weapon-sheet trooper-sheet">
+  <header class="dt-header dt-header-with-portrait">
+    <div class="dt-header-portrait-wrap">
+      <img class="dt-portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    </div>
+    <div class="dt-header-main">
+      <input class="dt-item-name-input" type="text" name="name" value="{{item.name}}" />
+      <div class="dt-subtitle">Weapon Configuration</div>
+    </div>
+  </header>
+
+  <section class="dt-grid dt-middle">
+    <div class="dt-card">
+      <h2>Core</h2>
+
+      <label>Weapon Tier</label>
+      <select name="system.tier">
+        <option value="Light" {{#if (eq system.tier "Light")}}selected{{/if}}>Light</option>
+        <option value="Medium" {{#if (eq system.tier "Medium")}}selected{{/if}}>Medium</option>
+        <option value="Heavy" {{#if (eq system.tier "Heavy")}}selected{{/if}}>Heavy</option>
+        <option value="Ultra" {{#if (eq system.tier "Ultra")}}selected{{/if}}>Ultra</option>
+      </select>
+
+      <label>Skill Used</label>
+      <select name="system.skill">
+        <option value="shooting" {{#if (eq system.skill "shooting")}}selected{{/if}}>Shooting</option>
+        <option value="heavyWeapons" {{#if (eq system.skill "heavyWeapons")}}selected{{/if}}>Heavy Weapons</option>
+        <option value="melee" {{#if (eq system.skill "melee")}}selected{{/if}}>Melee</option>
+        <option value="maneuvering" {{#if (eq system.skill "maneuvering")}}selected{{/if}}>Maneuvering</option>
+        <option value="recon" {{#if (eq system.skill "recon")}}selected{{/if}}>Recon</option>
+        <option value="sensors" {{#if (eq system.skill "sensors")}}selected{{/if}}>Sensors</option>
+        <option value="electronics" {{#if (eq system.skill "electronics")}}selected{{/if}}>Electronics</option>
+        <option value="engineering" {{#if (eq system.skill "engineering")}}selected{{/if}}>Engineering</option>
+        <option value="droneControl" {{#if (eq system.skill "droneControl")}}selected{{/if}}>Drone Control</option>
+        <option value="command" {{#if (eq system.skill "command")}}selected{{/if}}>Command</option>
+        <option value="discipline" {{#if (eq system.skill "discipline")}}selected{{/if}}>Discipline</option>
+        <option value="survival" {{#if (eq system.skill "survival")}}selected{{/if}}>Survival</option>
+      </select>
+
+      <label>Base Damage Dice</label>
+      <input type="number" name="system.baseDamage" value="{{system.baseDamage}}" />
+
+      <label>Notes</label>
+      <textarea name="system.notes">{{system.notes}}</textarea>
+    </div>
+
+    <div class="dt-card">
+      <h2>Ammunition</h2>
+
+      <label>Ammo Current</label>
+      <input type="number" name="system.ammo" value="{{system.ammo}}" />
+
+      <label>Magazine Size</label>
+      <input type="number" name="system.magSize" value="{{system.magSize}}" />
+
+      <label>Max Ammo Carried</label>
+      <input type="number" name="system.ammoMax" value="{{system.ammoMax}}" />
+
+      <p class="dt-item-help">Example: Ammo Current 12, Magazine Size 12, Max Ammo Carried 24. Fire spends from Ammo Current. Reload pulls rounds from Max Ammo Carried into the magazine.</p>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.aoeEnabled" {{checked system.aoeEnabled}}>
+        AOE Weapon
+      </label>
+
+      <label>AOE Type</label>
+      <select name="system.aoeType">
+        <option value="blast" {{#if (eq system.aoeType "blast")}}selected{{/if}}>Blast</option>
+        <option value="cone" {{#if (eq system.aoeType "cone")}}selected{{/if}}>Cone</option>
+      </select>
+
+      <label>AOE Effect</label>
+      <select name="system.aoeEffect">
+        <option value="damage" {{#if (eq system.aoeEffect "damage")}}selected{{/if}}>Damage</option>
+        <option value="smoke" {{#if (eq system.aoeEffect "smoke")}}selected{{/if}}>Smoke</option>
+      </select>
+
+      <p class="dt-item-help">Smoke uses Blast aiming and scatter, creates a persistent cloud, and does no damage.</p>
+    </div>
+  </section>
+
+  <section class="dt-card">
+    <h2>Blast AOE</h2>
+    <div class="dt-item-two-col">
+      <div>
+        <label>Blast Radius</label>
+        <input type="number" name="system.blastRadius" value="{{system.blastRadius}}" />
+      </div>
+      <div>
+        <label>Kill Radius</label>
+        <input type="number" name="system.killRadius" value="{{system.killRadius}}" />
+      </div>
+      <div>
+        <label>Heavy Radius</label>
+        <input type="number" name="system.heavyRadius" value="{{system.heavyRadius}}" />
+      </div>
+      <div>
+        <label>Fragment Radius</label>
+        <input type="number" name="system.fragRadius" value="{{system.fragRadius}}" />
+      </div>
+      <div>
+        <label>Kill Damage Dice</label>
+        <input type="number" name="system.killDamage" value="{{system.killDamage}}" />
+      </div>
+      <div>
+        <label>Heavy Damage Dice</label>
+        <input type="number" name="system.heavyDamage" value="{{system.heavyDamage}}" />
+      </div>
+      <div>
+        <label>Fragment Damage Dice</label>
+        <input type="number" name="system.fragDamage" value="{{system.fragDamage}}" />
+      </div>
+    </div>
+  </section>
+
+  <section class="dt-card">
+    <h2>Smoke AOE</h2>
+    <div class="dt-item-two-col">
+      <div>
+        <label>Smoke Diameter</label>
+        <input type="number" name="system.smokeDiameter" value="{{system.smokeDiameter}}" />
+      </div>
+      <div>
+        <label>Smoke Duration (Rounds)</label>
+        <input type="number" name="system.smokeDurationRounds" value="{{system.smokeDurationRounds}}" />
+      </div>
+    </div>
+
+    <p class="dt-item-help">Use AOE Type = Blast and AOE Effect = Smoke for smoke grenades. The GM can manually delete the smoke template early if something clears it.</p>
+  </section>
+
+  <section class="dt-card">
+    <h2>Cone AOE</h2>
+    <div class="dt-item-two-col">
+      <div>
+        <label>Cone Range</label>
+        <input type="number" name="system.coneRange" value="{{system.coneRange}}" />
+      </div>
+      <div>
+        <label>Cone Angle</label>
+        <select name="system.coneAngle">
+          <option value="15" {{#if (eq system.coneAngle "15")}}selected{{/if}}>15°</option>
+          <option value="20" {{#if (eq system.coneAngle "20")}}selected{{/if}}>20°</option>
+          <option value="25" {{#if (eq system.coneAngle "25")}}selected{{/if}}>25°</option>
+          <option value="30" {{#if (eq system.coneAngle "30")}}selected{{/if}}>30°</option>
+          <option value="35" {{#if (eq system.coneAngle "35")}}selected{{/if}}>35°</option>
+          <option value="40" {{#if (eq system.coneAngle "40")}}selected{{/if}}>40°</option>
+          <option value="45" {{#if (eq system.coneAngle "45")}}selected{{/if}}>45°</option>
+          <option value="50" {{#if (eq system.coneAngle "50")}}selected{{/if}}>50°</option>
+          <option value="55" {{#if (eq system.coneAngle "55")}}selected{{/if}}>55°</option>
+          <option value="60" {{#if (eq system.coneAngle "60")}}selected{{/if}}>60°</option>
+          <option value="65" {{#if (eq system.coneAngle "65")}}selected{{/if}}>65°</option>
+          <option value="70" {{#if (eq system.coneAngle "70")}}selected{{/if}}>70°</option>
+          <option value="75" {{#if (eq system.coneAngle "75")}}selected{{/if}}>75°</option>
+          <option value="80" {{#if (eq system.coneAngle "80")}}selected{{/if}}>80°</option>
+          <option value="85" {{#if (eq system.coneAngle "85")}}selected{{/if}}>85°</option>
+          <option value="90" {{#if (eq system.coneAngle "90")}}selected{{/if}}>90°</option>
+        </select>
+      </div>
+      <div>
+        <label>Cone Kill Range</label>
+        <input type="number" name="system.coneKillRange" value="{{system.coneKillRange}}" />
+      </div>
+      <div>
+        <label>Cone Heavy Range</label>
+        <input type="number" name="system.coneHeavyRange" value="{{system.coneHeavyRange}}" />
+      </div>
+      <div>
+        <label>Cone Fragment Range</label>
+        <input type="number" name="system.coneFragRange" value="{{system.coneFragRange}}" />
+      </div>
+    </div>
+
+    <p class="dt-item-help">Cone range bands use the same Kill / Heavy / Fragment damage fields above. For a full-strength spray, set Cone Kill Range to the full cone range and leave Heavy / Fragment at 0.</p>
+  </section>
+</form>

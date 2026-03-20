@@ -1,0 +1,32 @@
+{
+  "id": "drop-trooper",
+  "title": "Drop Trooper",
+  "description": "Drop Trooper Tactical Sci-Fi RPG",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Drop Trooper"
+    }
+  ],
+  "compatibility": {
+    "minimum": 13,
+    "verified": 13
+  },
+  "esmodules": [
+    "drop-trooper.mjs"
+  ],
+  "styles": [
+    "styles/drop-trooper.css"
+  ],
+  "documentTypes": {
+    "Actor": {
+      "trooper": {},
+      "npc": {},
+      "drone": {}
+    },
+    "Item": {
+      "weapon": {},
+      "ability": {}
+    }
+  }
+}

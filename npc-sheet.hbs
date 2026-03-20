@@ -1,7 +1,15 @@
 <form class="trooper-sheet">
-  <header>
-    <h1>{{actor.name}}</h1>
-    <div>NPC Combat Unit</div>
+  <header class="dt-header dt-header-with-portrait">
+    <div class="dt-header-portrait-wrap">
+      <img class="dt-portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="dt-header-main">
+      <h1>{{actor.name}}</h1>
+      <div class="dt-subtitle">NPC Combat Unit</div>
+      <div class="dt-header-actions">
+        <button type="button" class="npc-blueprint-export dt-header-action-button">Export Blueprint</button>
+      </div>
+    </div>
   </header>
 
   <section>
@@ -46,7 +54,7 @@
   </section>
 
   <section>
-    <h2>Weapon</h2>
+    <h2>Weapon (Legacy Standard Attack)</h2>
 
     <label>Name</label>
     <input type="text" name="system.weapon.name" value="{{system.weapon.name}}"/>
@@ -61,11 +69,81 @@
 
     <label>Damage Dice</label>
     <input type="number" name="system.weapon.baseDamage" value="{{system.weapon.baseDamage}}"/>
+
+    <div class="dt-section-subtitle">Imported NPCs use the item weapons below for full attack behavior. This legacy block is kept for compatibility.</div>
+  </section>
+
+  <section class="dt-card dt-item-section-card">
+    <div class="dt-section-header">
+      <div>
+        <h2>Weapon Items</h2>
+        <div class="dt-section-subtitle">Use these for direct fire, reloads, blast, cone, and smoke</div>
+      </div>
+      <button type="button" class="weapon-create dt-inline-create">Add Weapon</button>
+    </div>
+
+    <div class="dt-item-stack">
+      {{#each weapons as |item|}}
+      <div class="dt-item-card dt-weapon-card" data-item-id="{{item._id}}">
+        <div class="dt-item-main">
+          <div class="dt-item-title-row">
+            <a class="dt-item-title weapon-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+            <span class="dt-item-badge">{{item.attackLabel}}</span>
+          </div>
+          <div class="dt-item-meta">
+            <span>{{item.system.skill}}</span>
+            <span>•</span>
+            <span>{{item.system.tier}}</span>
+            <span>•</span>
+            <span>{{item.ammoDisplay}}</span>
+          </div>
+        </div>
+        <div class="dt-item-actions">
+          <button type="button" class="weapon-attack" data-item-id="{{item._id}}">{{item.attackLabel}}</button>
+          {{#if item.reloadVisible}}<button type="button" class="weapon-reload" data-item-id="{{item._id}}">Reload</button>{{/if}}
+          <button type="button" class="weapon-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </section>
 
   <section>
     <button type="button" class="roll-shoot">Attack</button>
     <button type="button" class="roll-defense">Defense</button>
-    <button type="button" class="brace-roll">Brace</button>
+  </section>
+
+
+  <section>
+    <div class="dt-section-header">
+      <h2>Abilities</h2>
+      <button type="button" class="ability-create">Add Ability</button>
+    </div>
+
+    <div class="dt-ability-list">
+      <div class="dt-ability-list-header">
+        <div>Ability</div>
+        <div>Mode</div>
+        <div>Linked</div>
+        <div>Pool</div>
+        <div>Actions</div>
+      </div>
+
+      {{#each abilities as |item|}}
+        <div class="dt-ability-row" data-item-id="{{item._id}}">
+          <div class="dt-ability-name-cell">
+            <a class="dt-ability-name ability-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+          </div>
+          <div class="dt-ability-mode-cell">{{item.abilityModeLabel}}</div>
+          <div class="dt-ability-linked-cell">{{item.linkedSkillLabel}}</div>
+          <div class="dt-ability-pool-cell">{{item.poolDisplay}}</div>
+          <div class="dt-ability-actions-cell">
+            <button type="button" class="ability-use" data-item-id="{{item._id}}">Use</button>
+            {{#if item.resetVisible}}<button type="button" class="ability-reset" data-item-id="{{item._id}}">Reset</button>{{/if}}
+            <button type="button" class="ability-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
   </section>
 </form>

@@ -1,7 +1,12 @@
 <form class="trooper-sheet">
-  <header class="dt-header">
-    <h1>{{actor.name}}</h1>
-    <div class="dt-subtitle">Drop Trooper Combat Sheet</div>
+  <header class="dt-header dt-header-with-portrait">
+    <div class="dt-header-portrait-wrap">
+      <img class="dt-portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="dt-header-main">
+      <h1>{{actor.name}}</h1>
+      <div class="dt-subtitle">Drop Trooper Combat Sheet</div>
+    </div>
   </header>
 
   <section class="dt-grid dt-top">
@@ -118,6 +123,10 @@
 
       <label>Armor Notes</label>
       <textarea name="system.armor.notes">{{system.armor.notes}}</textarea>
+
+      <div class="dt-button-row">
+        <button type="button" class="nano-repair">Nano Repair</button>
+      </div>
     </div>
 
     <div class="dt-card">
@@ -172,47 +181,73 @@
       <div class="dt-skill-row"><button type="button" class="roll-skill" data-skill="survival">Roll</button><label>Survival</label><input type="number" name="system.skills.survival" value="{{system.skills.survival}}"/></div>
       <div class="dt-skill-row"><button type="button" class="roll-defense">Roll</button><label>Defense Dice</label><input type="number" name="system.skills.defense" value="{{system.skills.defense}}"/></div>
     </div>
-    <div class="dt-button-row">
-      <button type="button" class="brace-roll">Brace</button>
-    </div>
   </section>
 
-  <section class="dt-card">
-    <h2>Reactions</h2>
-    <div class="dt-button-row">
-    </div>
-    <div class="dt-weapon-hint">Brace rolls Defense dice. Each success rolls 1d6 damage reduction. Apply the total reduction to the incoming damage manually.</div>
-  </section>
-
-  <section class="dt-card dt-weapon-loadout-card">
+  <section class="dt-card dt-item-section-card">
     <div class="dt-section-header">
-      <h2>Weapons</h2>
-      <div class="dt-weapon-hint">Ammo shows as Current / Magazine Size (Spare Carried). Reload moves spare carried rounds into the magazine.</div>
+      <div>
+        <h2>Weapons</h2>
+        <div class="dt-section-subtitle">Current / Mag / Spare</div>
+      </div>
     </div>
 
-    <div class="dt-weapon-list">
-      <div class="dt-weapon-list-header">
-        <div>Weapon</div>
-        <div>Type</div>
-        <div>Tier</div>
-        <div>Ammo</div>
-        <div>Actions</div>
-      </div>
-
+    <div class="dt-item-stack">
       {{#each weapons as |item|}}
-          <div class="dt-weapon-row" data-item-id="{{item._id}}">
-            <div class="dt-weapon-name-cell">
-              <a class="dt-weapon-name weapon-edit" data-item-id="{{item._id}}">{{item.name}}</a>
-            </div>
-            <div class="dt-weapon-type-cell">{{item.system.skill}}</div>
-            <div class="dt-weapon-tier-cell">{{item.system.tier}}</div>
-            <div class="dt-weapon-ammo-cell">{{item.ammoDisplay}}</div>
-            <div class="dt-weapon-actions-cell">
-              <button type="button" class="weapon-attack" data-item-id="{{item._id}}">{{item.attackLabel}}</button>
-              {{#if item.reloadVisible}}<button type="button" class="weapon-reload" data-item-id="{{item._id}}">Reload</button>{{/if}}
-              <button type="button" class="weapon-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
-            </div>
+      <div class="dt-item-card dt-weapon-card" data-item-id="{{item._id}}">
+        <div class="dt-item-main">
+          <div class="dt-item-title-row">
+            <a class="dt-item-title weapon-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+            <span class="dt-item-badge">{{item.attackLabel}}</span>
           </div>
+          <div class="dt-item-meta">
+            <span>{{item.system.skill}}</span>
+            <span>•</span>
+            <span>{{item.system.tier}}</span>
+            <span>•</span>
+            <span>{{item.ammoDisplay}}</span>
+          </div>
+        </div>
+        <div class="dt-item-actions">
+          <button type="button" class="weapon-attack" data-item-id="{{item._id}}">{{item.attackLabel}}</button>
+          {{#if item.reloadVisible}}<button type="button" class="weapon-reload" data-item-id="{{item._id}}">Reload</button>{{/if}}
+          <button type="button" class="weapon-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <section class="dt-card dt-item-section-card">
+    <div class="dt-section-header">
+      <div>
+        <h2>Abilities</h2>
+        <div class="dt-section-subtitle">Use, reset, and manage squad abilities</div>
+      </div>
+      <button type="button" class="ability-create dt-inline-create">Add Ability</button>
+    </div>
+
+    <div class="dt-item-stack">
+      {{#each abilities as |item|}}
+      <div class="dt-item-card dt-ability-card" data-item-id="{{item._id}}">
+        <div class="dt-item-main">
+          <div class="dt-item-title-row">
+            <a class="dt-item-title ability-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+            <span class="dt-item-badge">{{item.abilityModeLabel}}</span>
+          </div>
+          <div class="dt-item-meta">
+            <span>{{item.linkedSkillLabel}}</span>
+            {{#if item.resetVisible}}
+            <span>•</span>
+            <span>Pool {{item.poolDisplay}}</span>
+            {{/if}}
+          </div>
+        </div>
+        <div class="dt-item-actions">
+          <button type="button" class="ability-use" data-item-id="{{item._id}}">Use</button>
+          {{#if item.resetVisible}}<button type="button" class="ability-reset" data-item-id="{{item._id}}">Reset</button>{{/if}}
+          <button type="button" class="ability-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+        </div>
+      </div>
       {{/each}}
     </div>
   </section>

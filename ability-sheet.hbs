@@ -1,0 +1,81 @@
+<form class="weapon-sheet trooper-sheet">
+  <header class="dt-header dt-header-with-portrait">
+    <div class="dt-header-portrait-wrap">
+      <img class="dt-portrait" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    </div>
+    <div class="dt-header-main">
+      <input class="dt-item-name-input" type="text" name="name" value="{{item.name}}" />
+      <div class="dt-subtitle">Ability Configuration</div>
+    </div>
+  </header>
+
+  <section class="dt-grid dt-middle">
+    <div class="dt-card">
+      <h2>Core</h2>
+
+      <label>Ability Type</label>
+      <select name="system.abilityType">
+        <option value="skill" {{#if (eq system.abilityType "skill")}}selected{{/if}}>Skill Ability</option>
+        <option value="special" {{#if (eq system.abilityType "special")}}selected{{/if}}>Special Ability</option>
+      </select>
+
+      <label>Linked Skill</label>
+      <select name="system.linkedSkill">
+        <option value="shooting" {{#if (eq system.linkedSkill "shooting")}}selected{{/if}}>Shooting</option>
+        <option value="heavyWeapons" {{#if (eq system.linkedSkill "heavyWeapons")}}selected{{/if}}>Heavy Weapons</option>
+        <option value="melee" {{#if (eq system.linkedSkill "melee")}}selected{{/if}}>Melee</option>
+        <option value="maneuvering" {{#if (eq system.linkedSkill "maneuvering")}}selected{{/if}}>Maneuvering</option>
+        <option value="recon" {{#if (eq system.linkedSkill "recon")}}selected{{/if}}>Recon</option>
+        <option value="sensors" {{#if (eq system.linkedSkill "sensors")}}selected{{/if}}>Sensors</option>
+        <option value="electronics" {{#if (eq system.linkedSkill "electronics")}}selected{{/if}}>Electronics</option>
+        <option value="engineering" {{#if (eq system.linkedSkill "engineering")}}selected{{/if}}>Engineering</option>
+        <option value="droneControl" {{#if (eq system.linkedSkill "droneControl")}}selected{{/if}}>Drone Control</option>
+        <option value="command" {{#if (eq system.linkedSkill "command")}}selected{{/if}}>Command</option>
+        <option value="discipline" {{#if (eq system.linkedSkill "discipline")}}selected{{/if}}>Discipline</option>
+        <option value="survival" {{#if (eq system.linkedSkill "survival")}}selected{{/if}}>Survival</option>
+        <option value="defense" {{#if (eq system.linkedSkill "defense")}}selected{{/if}}>Defense</option>
+        <option value="strength" {{#if (eq system.linkedSkill "strength")}}selected{{/if}}>Strength</option>
+        <option value="agility" {{#if (eq system.linkedSkill "agility")}}selected{{/if}}>Agility</option>
+        <option value="perception" {{#if (eq system.linkedSkill "perception")}}selected{{/if}}>Perception</option>
+        <option value="tech" {{#if (eq system.linkedSkill "tech")}}selected{{/if}}>Tech</option>
+        <option value="will" {{#if (eq system.linkedSkill "will")}}selected{{/if}}>Will</option>
+      </select>
+
+      <label>Flat Bonus Dice</label>
+      <input type="number" name="system.bonusDice" value="{{system.bonusDice}}" />
+
+      <label>Special Type / Effect</label>
+      <select name="system.specialType">
+        <option value="none" {{#if (eq system.specialType "none")}}selected{{/if}}>None</option>
+        <option value="commandDice" {{#if (eq system.specialType "commandDice")}}selected{{/if}}>Command Dice</option>
+        <option value="repairKit" {{#if (eq system.specialType "repairKit")}}selected{{/if}}>Repair Kit</option>
+        <option value="sensorSweep" {{#if (eq system.specialType "sensorSweep")}}selected{{/if}}>Sensor Sweep</option>
+        <option value="flightPack" {{#if (eq system.specialType "flightPack")}}selected{{/if}}>Flight Pack</option>
+      </select>
+
+      <label>Notes</label>
+      <textarea name="system.notes">{{system.notes}}</textarea>
+    </div>
+
+    <div class="dt-card">
+      <h2>Pool & Uses</h2>
+
+      <label>Pool Current</label>
+      <input type="number" name="system.pool.value" value="{{system.pool.value}}" />
+
+      <label>Pool Max</label>
+      <input type="number" name="system.pool.max" value="{{system.pool.max}}" />
+
+      <label>Base Range (Sensor Sweep)</label>
+      <input type="number" name="system.baseRange" value="{{system.baseRange}}" />
+
+      <label>Range Per Success (Sensor Sweep)</label>
+      <input type="number" name="system.rangePerSuccess" value="{{system.rangePerSuccess}}" />
+
+      <label>Ping Duration ms (Sensor Sweep)</label>
+      <input type="number" name="system.pingDurationMs" value="{{system.pingDurationMs}}" />
+
+      <p class="dt-item-help">Skill abilities roll the linked skill plus Flat Bonus Dice. Command Dice grants bonus dice to one ally's next roll. Repair Kit uses the linked skill, repairs 1d6 + successes to armor integrity, and spends 1 use from Pool Current. Sensor Sweep rolls the linked skill, detects hidden targets, ignores walls, and pings exact positions based on Base Range + Range Per Success × successes. Flight Pack rolls the linked skill and, on 0 successes, triggers a non-lethal 1d10 flight mishap table.</p>
+    </div>
+  </section>
+</form>

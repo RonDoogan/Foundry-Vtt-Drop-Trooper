@@ -1,0 +1,546 @@
+DROP TROOPER v1.3 – UPDATED CORE SYSTEM
+MASTER RULES FILE
+
+Drop Trooper is a fast, tactical sci-fi combat game built for squad-level action and easy VTT play.
+The system uses d6 dice pools. Only 6s count as successes on attack and defense rolls.
+Damage dice are rolled normally and added together.
+
+This version keeps the v1.2 core engine and adds the current working tactical actions, next-roll modifiers, smoke rules, sensor sweep rules, flight-pack mishaps, defeated state guidance, and group-fire guidance used in the Foundry build.
+
+------------------------------------------------------------
+1. CORE RESOLUTION
+------------------------------------------------------------
+
+Most combat attacks follow this sequence:
+
+1. Roll Attack Dice
+2. Determine Damage Dice
+3. Target Rolls Defense Dice
+4. Roll Remaining Damage Dice
+5. Apply Armor Tier Multiplier
+6. Apply Critical or Epic modifiers
+7. Apply damage to Integrity, then Health
+
+Other rolls such as skill, attribute, defense, repair, and ability checks use the same dice-pool logic, but do not follow the full damage sequence.
+
+------------------------------------------------------------
+2. ACTION ECONOMY
+------------------------------------------------------------
+
+Each trooper gets 2 actions on their turn.
+
+Common actions include:
+- Move
+- Shoot
+- Reload
+- Aim
+- Brace
+- Use item
+- Use ability
+- Interact with objective
+- Deploy gear or drone
+
+Example turns:
+- Move + Shoot
+- Reload + Shoot
+- Move + Reload
+- Shoot + Shoot
+- Aim + Shoot
+- Brace + Move
+
+The GM may restrict duplicate actions if a specific situation or weapon calls for it.
+
+------------------------------------------------------------
+3. ATTACK ROLL
+------------------------------------------------------------
+
+Roll Attack Dice (d6) based on weapon, ability, or effect.
+Each 6 = 1 success.
+
+Success Results:
+- 0 successes = Miss
+- 1 success = Hit
+- 2 successes = +1 damage die
+- 3 successes = Critical Hit
+- 4+ successes = Epic Hit
+
+If a temporary modifier reduces an attack pool to 0 dice, the attack becomes an automatic miss.
+The modifier is still consumed.
+
+------------------------------------------------------------
+4. DAMAGE DICE
+------------------------------------------------------------
+
+Each weapon has a base damage dice pool.
+
+Examples:
+- Rifle – 4d6
+- Heavy Rifle – 5d6
+- Missile Launcher – 8d6
+
+Attack successes may modify damage:
+- 1 success: roll base damage
+- 2 successes: add +1 damage die
+- 3 successes: Critical Hit
+- 4+ successes: Epic Hit
+
+Damage dice are separate from attack dice.
+A modifier that affects the next roll does not automatically affect damage unless a specific rule says it does.
+
+------------------------------------------------------------
+5. DEFENSE ROLL
+------------------------------------------------------------
+
+After a hit is confirmed, the target may roll Defense Dice (d6).
+Each 6 removes 1 damage die from the incoming attack.
+
+Defense represents:
+- armor maneuvering
+- shield systems
+- reactive thrusters
+- evasive movement
+- cover
+
+Defense can reduce damage dice to 0.
+If all damage dice are removed, the attack deals 0 damage.
+
+Defense does not turn a hit into a miss. It only reduces or negates damage.
+
+If a temporary modifier reduces a defense pool to 0 dice, the defense roll becomes an automatic fail and removes 0 damage dice.
+The modifier is still consumed.
+
+------------------------------------------------------------
+6. DAMAGE ROLL
+------------------------------------------------------------
+
+Roll the remaining damage dice and total the result.
+
+Example:
+4d6 = 4 + 6 + 3 + 5 = 18 damage
+
+If defense reduced the pool to 0 dice, the attack deals 0 damage.
+
+------------------------------------------------------------
+7. ARMOR TIERS AND DAMAGE MULTIPLIERS
+------------------------------------------------------------
+
+Weapons and armor both have tiers.
+
+Armor / Weapon Tiers:
+- Light  – creatures, recon armor, light weapons
+- Medium – combat armor, standard troops, military rifles
+- Heavy  – battlesuits, tanks, heavy weapons
+- Ultra  – starship scale systems and ship armor
+
+Compare the weapon tier to the target's armor tier.
+
+Damage Multiplier:
+- Same tier = x1 damage
+- Weapon 1 tier higher = x2 damage
+- Weapon 2+ tiers higher = x4 damage
+- Weapon 1 tier lower = x0.5 damage
+- Weapon 2+ tiers lower = x0.25 damage
+
+Examples:
+- Heavy weapon vs Heavy armor = x1
+- Heavy weapon vs Medium armor = x2
+- Heavy weapon vs Light armor = x4
+- Light weapon vs Medium armor = x0.5
+- Light weapon vs Heavy armor = x0.25
+
+Round final damage up after applying multipliers unless the result is 0.
+
+------------------------------------------------------------
+8. CRITICAL HITS
+------------------------------------------------------------
+
+If the attack roll produces exactly 3 successes, the hit is Critical.
+
+Resolve the attack normally, then:
+- Total Damage x2
+
+Critical hits do not automatically add narrative effects unless the GM wants to.
+Their core effect is doubled damage.
+
+------------------------------------------------------------
+9. EPIC HITS
+------------------------------------------------------------
+
+If the attack roll produces 4 or more successes, the hit is an Epic Hit.
+
+Resolve the attack normally, then:
+- Total Damage x2
+
+In addition, the GM may apply one cinematic effect that fits the weapon and situation.
+Examples include:
+- knockback
+- armor breach
+- weapon damage
+- stagger
+- environmental destruction
+- system disruption
+
+Epic Hits are meant to feel dramatic, dangerous, and memorable.
+
+------------------------------------------------------------
+10. ARMOR INTEGRITY AND HEALTH
+------------------------------------------------------------
+
+Armor absorbs damage before the trooper is injured.
+
+Damage is applied in this order:
+Damage -> Armor Integrity -> Health
+
+When Integrity reaches 0, any remaining damage is applied to Health.
+Once Integrity is gone, future damage goes directly to Health unless armor is repaired.
+
+Example Integrity Values:
+- Recon Armor – 18
+- Combat Armor – 20
+- Heavy Battlesuit – 24
+
+------------------------------------------------------------
+11. DEFEATED STATE
+------------------------------------------------------------
+
+When a unit's Health is reduced to 0, that unit is defeated.
+
+Defeated means:
+- the unit is out of the fight
+- the GM may remove it, leave it in place as a wreck or body, or treat it as incapacitated depending on the scenario
+- defeated is separate from armor break; Integrity 0 only means armor has failed, not that the unit is defeated
+
+------------------------------------------------------------
+12. ARMOR TYPES
+------------------------------------------------------------
+
+Armor type matters because it determines the tier used in damage scaling.
+
+Common armor types:
+
+Recon Armor
+- Tier: Light
+- Example Integrity: 18
+- Fast, mobile, vulnerable to heavier weapons
+
+Combat Armor
+- Tier: Medium
+- Example Integrity: 20
+- Standard military protection
+
+Heavy Battlesuit
+- Tier: Heavy
+- Example Integrity: 24
+- Slower, tougher, resistant to lighter weapons
+
+Ship Armor
+- Tier: Ultra
+- Used for starfighters, gunships, dropships, and larger vessels
+
+------------------------------------------------------------
+13. AMMO SYSTEM
+------------------------------------------------------------
+
+Most ranged weapons track ammunition.
+
+Weapons list:
+- Ammo Current
+- Magazine Size
+- Reserve Ammo
+
+Example:
+Pulse Rifle
+Ammo Current: 12
+Magazine Size: 12
+Reserve Ammo: 24
+
+When a weapon is fired, reduce Ammo Current as appropriate.
+
+If Ammo Current reaches 0, the weapon cannot be fired until reloaded unless a special rule says otherwise.
+
+------------------------------------------------------------
+14. RELOAD ACTION
+------------------------------------------------------------
+
+Reloading costs 1 action.
+
+When a trooper reloads:
+- Refill the weapon up to its Magazine Size
+- Remove that amount from Reserve Ammo
+- A trooper cannot reload more ammo than remains in Reserve
+
+Example:
+Magazine Size 12
+Ammo Current 3
+Reserve Ammo 14
+
+Reloading loads 9 rounds.
+New totals:
+Ammo Current 12
+Reserve Ammo 5
+
+A trooper with 2 actions may Reload + Shoot on the same turn.
+
+------------------------------------------------------------
+15. AOE WEAPONS AND BLAST ZONES
+------------------------------------------------------------
+
+Explosive weapons create blast zones.
+Examples include:
+- grenades
+- missile launchers
+- satchel charges
+- orbital strikes
+
+Standard blast zones:
+- Kill Zone = full damage dice
+- Heavy Splash = half damage dice
+- Fragmentation = quarter damage dice
+
+Each target in the blast rolls defense normally.
+
+For reduced blast dice:
+- Half dice: round up
+- Quarter dice: round up
+- Minimum 1 die if the target is still inside the blast area
+
+Example:
+Missile Launcher base damage = 8d6
+- Kill Zone: 8d6
+- Heavy Splash: 4d6
+- Fragmentation: 2d6
+
+The GM may assign exact distances for each zone by weapon.
+
+Example missile profile:
+- 0–30 ft = Kill Zone
+- 31–60 ft = Heavy Splash
+- 61–100 ft = Fragmentation
+
+Some explosives may also have a minimum arming distance.
+
+------------------------------------------------------------
+16. SMOKE GRENADES
+------------------------------------------------------------
+
+Smoke grenades use the same blast-style aiming flow as other AOE weapons.
+
+Smoke Grenade Rules:
+- Uses AOE targeting to choose the landing point
+- Creates a 30 ft diameter smoke area
+- Lasts 3 rounds
+- Deals no damage unless a separate weapon rule says otherwise
+- The GM may remove the smoke early if an effect clears it
+
+Smoke Effects:
+- Smoke blocks line of sight through it
+- A unit inside smoke cannot see clearly out through the smoke unless the GM rules otherwise
+- A unit on one side of smoke cannot see clearly through it to targets on the far side
+- Smoke blocks Sensor Sweep and similar battlefield scanners unless a future ability specifically says it can penetrate smoke
+- Smoke is a battlefield control tool and should be treated as hard concealment and sensor interference, not a damage effect
+
+------------------------------------------------------------
+17. SENSOR SWEEP
+------------------------------------------------------------
+
+Sensor Sweep is an active scan ability.
+
+Sensor Sweep Rules:
+- Roll the linked skill as an ability check
+- Final scan range = Base Range + (Successes x Range Per Success)
+- Sensor Sweep ignores walls and normal line of sight
+- Sensor Sweep checks all tokens in range, not just hidden ones
+- Smoke blocks the sweep completely
+
+Smoke blocks Sensor Sweep in any of these cases:
+- the scanning unit is inside smoke
+- the target is inside smoke
+- the scan line between scanner and target crosses smoke
+
+Sensor Sweep Results:
+- Any token in range and not blocked by smoke is detected
+- Hidden targets are revealed by the sweep
+- Visible targets are still valid contacts and may be pinged or called out by the GM or VTT
+- Tokens blocked by smoke are not detected
+
+------------------------------------------------------------
+18. FLIGHT PACK
+------------------------------------------------------------
+
+Flight Pack is a movement ability for suits equipped with experimental thrusters or jump systems.
+
+Flight Pack Rules:
+- Roll the linked skill as an ability check
+- On 1 or more successes, Flight works normally
+- On 0 successes, Flight does not resolve cleanly; roll 1d10 on the Flight Mishap Table
+- Flight mishaps are disruptive and tactical, but not meant to be instantly deadly on their own
+
+Flight Mishap Table (1d10):
+1. Overheat Warning
+   Jets sputter and cut out. Flight fails, the trooper stays grounded, and cannot use Flight again until next turn.
+2. Spin Out
+   The suit yaws sideways. Drift 1d6 squares in a random direction, then land off-balance.
+3. Hard Landing
+   The trooper gets airborne but crashes down early. Move only half distance, then lose 1 action next turn.
+4. Thruster Flare
+   A bright exhaust bloom gives away the trooper's position. They are easy to spot until the end of the round.
+5. Smoke Belch
+   The pack belches smoke and soot. Place a small smoke patch around the trooper until the end of the round.
+6. Power Drain
+   The suit browns out. The trooper cannot Aim or Brace until next turn.
+7. Wild Burst
+   The thrusters kick too hard. The trooper overshoots the landing point by a short distance and ends exposed.
+8. Gyro Failure
+   The stabilizers glitch. The trooper lands where intended but ends prone or unstable.
+9. Comms Screech
+   The suit screams static across local comms. Nearby allies are distracted, but nobody is harmed.
+10. Control Lock
+   Flight fails completely. The trooper must manually reset the pack before trying again.
+
+------------------------------------------------------------
+19. TACTICAL ACTIONS
+------------------------------------------------------------
+
+AIM
+- Costs 1 action
+- The acting trooper gains +2d6 to their next attack roll
+- This affects the attack roll only, not the damage roll
+- The effect ends after that one attack
+
+BRACE
+- Costs 1 action
+- The acting trooper doubles their next defense roll
+- Example: 2d6 becomes 4d6
+- The effect ends after that one defense roll
+
+NANO REPAIR
+- Nano Repair restores armor integrity instead of affecting attack or defense
+- Exact repair values, limits, and uses are set by the ability or gear profile using it
+- Nano Repair affects Integrity, not Health, unless a special rule says otherwise
+
+------------------------------------------------------------
+20. TEMPORARY ROLL MODIFIERS
+------------------------------------------------------------
+
+Some effects grant bonus or penalty dice to a unit's next roll.
+These may come from command abilities, tactical support, GM effects, environmental hazards, or macros in a VTT.
+
+Temporary next-roll modifiers may affect:
+- attack rolls
+- defense rolls
+- skill rolls
+- attribute rolls
+- ability rolls
+
+Temporary next-roll modifiers do not affect damage rolls unless a specific rule says otherwise.
+
+If the next roll is an attack:
+- the modifier applies to the attack roll only
+- it does not apply to the damage roll
+
+If a modifier reduces a roll to 0 dice:
+- the roll is still resolved
+- the result is an automatic fail or automatic miss
+- the modifier is consumed normally
+
+Unless a specific ability says otherwise, a next-roll modifier is consumed after one qualifying roll.
+
+------------------------------------------------------------
+21. COMMAND DICE
+------------------------------------------------------------
+
+Command Dice represent battlefield leadership, coordination, timing, and support.
+
+Command Dice Rules:
+- The commander targets 1 allied token
+- The commander spends X Command Dice
+- The targeted ally gains +Xd6 to their next roll
+- If that next roll is an attack, the bonus applies to the attack roll only, not the damage roll
+- The bonus is consumed after that one qualifying roll
+
+Command Dice are intentionally flexible and may be used to support attack, defense, skill, or ability rolls.
+
+------------------------------------------------------------
+22. DRONES
+------------------------------------------------------------
+
+Some troopers deploy drones.
+Drones operate as separate battlefield units controlled by the player or GM.
+
+A drone may have its own:
+- Attack Dice
+- Defense Dice
+- Armor Tier
+- Integrity or Health
+- Speed
+- weapon profile
+- special ability
+
+Unless a specific drone rule says otherwise, drones follow the same combat rules as other units.
+
+------------------------------------------------------------
+23. GROUP ATTACKS (GM / VTT PLAY AID)
+------------------------------------------------------------
+
+For large groups of minor enemies, the GM may resolve same-type NPC attacks as a grouped batch for speed.
+
+Group Attack Rules:
+- All selected attackers must be the same NPC type or actor setup
+- All selected attackers use the same weapon for that batch
+- The group declares 1 target
+- Each selected attacker still resolves its own attack under the hood
+- The group attack is a speed tool, not a different damage system
+- The GM or VTT may mark those attackers as having acted until the next round
+
+This rule is meant to speed up minion turns without changing the underlying combat math.
+
+------------------------------------------------------------
+24. EXAMPLE ATTACK
+------------------------------------------------------------
+
+Nyx fires a Heavy Rifle at a Tawny trooper in Combat Armor.
+
+Attack Roll:
+3 Attack Dice -> 2 successes
+Result: +1 damage die
+
+Weapon Damage:
+Heavy Rifle base damage = 4d6
+With +1 damage die = 5d6
+
+Defense Roll:
+Target rolls 2 Defense Dice -> 1 success
+Remove 1 damage die
+
+Final Damage Pool:
+4d6
+
+Damage Roll:
+4 + 6 + 3 + 5 = 18
+
+Armor Interaction:
+Heavy weapon vs Medium armor = x2 damage
+18 x 2 = 36 damage
+
+Apply Damage:
+Damage is applied to Integrity first, then Health.
+
+------------------------------------------------------------
+25. DESIGN GOALS
+------------------------------------------------------------
+
+Fast Combat
+Minimal bookkeeping and quick resolution.
+
+Tactical Decisions
+Positioning, armor tier, weapon choice, defense, support actions, smoke placement, and battlefield scanning all matter.
+
+Explosive Sci-Fi Action
+Heavy weapons are terrifying and battlefield movement matters.
+
+VTT Friendly
+The system is built for smooth play in Roll20, Foundry, and other digital tabletops.
+
+------------------------------------------------------------
+END OF DROP TROOPER v1.3 UPDATED CORE SYSTEM
+------------------------------------------------------------

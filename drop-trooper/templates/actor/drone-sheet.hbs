@@ -1,0 +1,183 @@
+<form class="trooper-sheet">
+  <header class="dt-header dt-header-with-portrait">
+    <div class="dt-header-portrait-wrap">
+      <img class="dt-portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="dt-header-main">
+      <input class="dt-item-name-input" type="text" name="name" value="{{actor.name}}" />
+      <div class="dt-subtitle">Drone Tactical Unit</div>
+    </div>
+  </header>
+
+  <section class="dt-grid dt-top">
+    <div class="dt-card">
+      <h2>Control</h2>
+
+      <label>Controller Name</label>
+      <input type="text" name="system.control.controllerName" value="{{system.control.controllerName}}"/>
+
+      <label>Controller Actor ID</label>
+      <input type="text" name="system.control.controllerActorId" value="{{system.control.controllerActorId}}"/>
+      <p class="dt-item-help">Use the controller trooper\'s Actor ID here. When deployed, the drone will try to copy that trooper\'s player ownership automatically. A trooper can only have 1 deployed drone with Integrity above 0.</p>
+
+      <label>Owner Name</label>
+      <input type="text" name="system.control.ownerName" value="{{system.control.ownerName}}"/>
+
+      <label>Owner User ID</label>
+      <input type="text" name="system.control.ownerUserId" value="{{system.control.ownerUserId}}"/>
+    </div>
+
+    <div class="dt-card">
+      <h2>Combat</h2>
+
+      <label>Initiative</label>
+      <input type="number" name="system.combat.initiative" value="{{system.combat.initiative}}"/>
+
+      <label>Speed</label>
+      <input type="number" name="system.combat.speed" value="{{system.combat.speed}}"/>
+
+      <label>Actions Per Turn</label>
+      <input type="number" name="system.combat.actionsPerTurn" value="{{system.combat.actionsPerTurn}}"/>
+
+      <label>Actions Remaining</label>
+      <input type="number" name="system.combat.actionsRemaining" value="{{system.combat.actionsRemaining}}"/>
+
+      <label class="dt-check">
+        <input type="checkbox" name="system.combat.deployed" {{checked system.combat.deployed}}/>
+        Deployed / Active
+      </label>
+    </div>
+
+    <div class="dt-card">
+      <h2>Integrity</h2>
+
+      <label>Armor Tier</label>
+      <select name="system.armor.tier">
+        <option value="Light" {{#if (eq system.armor.tier "Light")}}selected{{/if}}>Light</option>
+        <option value="Medium" {{#if (eq system.armor.tier "Medium")}}selected{{/if}}>Medium</option>
+        <option value="Heavy" {{#if (eq system.armor.tier "Heavy")}}selected{{/if}}>Heavy</option>
+        <option value="Ultra" {{#if (eq system.armor.tier "Ultra")}}selected{{/if}}>Ultra</option>
+      </select>
+
+      <label>Integrity Current</label>
+      <input type="number" name="system.armor.integrity.value" value="{{system.armor.integrity.value}}"/>
+
+      <label>Integrity Max</label>
+      <input type="number" name="system.armor.integrity.max" value="{{system.armor.integrity.max}}"/>
+
+      <label>Armor Notes</label>
+      <textarea name="system.armor.notes">{{system.armor.notes}}</textarea>
+    </div>
+  </section>
+
+  <section class="dt-grid dt-middle">
+    <div class="dt-card">
+      <h2>Drone Control</h2>
+
+      <div class="dt-skill-grid">
+        <div class="dt-skill-row">
+          <button type="button" class="roll-skill" data-skill="droneControl">Roll</button>
+          <label>Drone Control</label>
+          <input type="number" name="system.skills.droneControl" value="{{system.skills.droneControl}}"/>
+        </div>
+
+        <div class="dt-skill-row">
+          <button type="button" class="roll-defense">Roll</button>
+          <label>Defense Dice</label>
+          <input type="number" value="{{droneDerived.defenseDice}}" readonly />
+        </div>
+      </div>
+
+      <div class="dt-button-row">
+        <button type="button" class="roll-defense">Defense</button>
+      </div>
+    </div>
+
+    <div class="dt-card">
+      <h2>Derived Drone Dice</h2>
+
+      <label>Attack Dice</label>
+      <input type="number" value="{{droneDerived.attackDice}}" readonly />
+
+      <label>Ability Dice</label>
+      <input type="number" value="{{droneDerived.abilityDice}}" readonly />
+
+      <label>Defense Dice</label>
+      <input type="number" value="{{droneDerived.defenseDice}}" readonly />
+
+      <p class="dt-item-help">Drone attacks and abilities use Drone Control. Defense is half Drone Control, rounded down, minimum 1.</p>
+    </div>
+  </section>
+
+  <section class="dt-card dt-item-section-card">
+    <div class="dt-section-header">
+      <div>
+        <h2>Weapons</h2>
+        <div class="dt-section-subtitle">Drone weapons should use Drone Control</div>
+      </div>
+      <button type="button" class="weapon-create dt-inline-create">Add Weapon</button>
+    </div>
+
+    <div class="dt-item-stack">
+      {{#each weapons as |item|}}
+      <div class="dt-item-card dt-weapon-card dt-sortable-item" data-item-id="{{item._id}}" data-dt-order-group="weapon">
+        <div class="dt-item-main">
+          <div class="dt-item-title-row">
+            <span class="dt-drag-handle" title="Drag to reorder" aria-hidden="true">↕</span>
+            <a class="dt-item-title weapon-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+            <span class="dt-item-badge">{{item.attackLabel}}</span>
+          </div>
+          <div class="dt-item-meta">
+            <span>{{item.system.skill}}</span>
+            <span>•</span>
+            <span>{{item.system.tier}}</span>
+            <span>•</span>
+            <span>{{item.ammoDisplay}}</span>
+          </div>
+        </div>
+        <div class="dt-item-actions">
+          <button type="button" class="weapon-attack" data-item-id="{{item._id}}">{{item.attackLabel}}</button>
+          {{#if item.reloadVisible}}<button type="button" class="weapon-reload" data-item-id="{{item._id}}">Reload</button>{{/if}}
+          <button type="button" class="weapon-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <section class="dt-card dt-item-section-card">
+    <div class="dt-section-header">
+      <div>
+        <h2>Abilities</h2>
+        <div class="dt-section-subtitle">Drone abilities should use Drone Control</div>
+      </div>
+      <button type="button" class="ability-create dt-inline-create">Add Ability</button>
+    </div>
+
+    <div class="dt-item-stack">
+      {{#each abilities as |item|}}
+      <div class="dt-item-card dt-ability-card dt-sortable-item" data-item-id="{{item._id}}" data-dt-order-group="ability">
+        <div class="dt-item-main">
+          <div class="dt-item-title-row">
+            <span class="dt-drag-handle" title="Drag to reorder" aria-hidden="true">↕</span>
+            <a class="dt-item-title ability-edit" data-item-id="{{item._id}}">{{item.name}}</a>
+            <span class="dt-item-badge">{{item.abilityModeLabel}}</span>
+          </div>
+          <div class="dt-item-meta">
+            <span>{{item.linkedSkillLabel}}</span>
+            {{#if item.resetVisible}}
+            <span>•</span>
+            <span>Pool {{item.poolDisplay}}</span>
+            {{/if}}
+          </div>
+        </div>
+        <div class="dt-item-actions">
+          <button type="button" class="ability-use" data-item-id="{{item._id}}">Use</button>
+          {{#if item.resetVisible}}<button type="button" class="ability-reset" data-item-id="{{item._id}}">Reset</button>{{/if}}
+          <button type="button" class="ability-delete dt-danger-button" data-item-id="{{item._id}}">Delete</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+</form>

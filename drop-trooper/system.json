@@ -1,0 +1,34 @@
+{
+  "id": "drop-trooper",
+  "title": "Drop Trooper",
+  "description": "Drop Trooper Tactical Sci-Fi RPG (redesign foundation pass)",
+  "version": "0.1.8-redesign-foundation",
+  "authors": [
+    {
+      "name": "Drop Trooper"
+    }
+  ],
+  "compatibility": {
+    "minimum": 13,
+    "verified": 13
+  },
+  "esmodules": [
+    "drop-trooper.mjs",
+    "scripts/reactions/overwatch-debug-hook.mjs"
+  ],
+  "styles": [
+    "styles/drop-trooper.css"
+  ],
+  "documentTypes": {
+    "Actor": {
+      "trooper": {},
+      "npc": {},
+      "drone": {}
+    },
+    "Item": {
+      "weapon": {},
+      "ability": {}
+    }
+  },
+  "socket": true
+}
